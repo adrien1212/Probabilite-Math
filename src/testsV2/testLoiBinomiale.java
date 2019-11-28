@@ -45,6 +45,7 @@ public class testLoiBinomiale {
         try {
             LoiBinomiale lB = new LoiBinomiale(ENSEMBLE_VALEUR2[0], ENSEMBLE_VALEUR[0]);
             OutilsTableaux.tabAfficher(lB.simuler(3000));
+            OutilsTableaux.tabAfficher(lB.simuler(2000));
         } catch(IllegalArgumentException err) {
             System.out.println(err.getMessage()); 
         }

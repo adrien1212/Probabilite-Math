@@ -6,6 +6,7 @@ package probabiliteV2;
 
 import java.util.ArrayList;
 
+import outils.CreationCSV;
 import outils.OutilsProbabilite;
 
 /**
@@ -75,6 +76,7 @@ public class LoiBinomiale extends LoiDiscrete{
             System.out.println(aSave);
             sauvegardeTemporaire.add(aSave);
         }
+        CreationCSV.creerCSV(sauvegardeTemporaire);
         
     }
 }

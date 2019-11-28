@@ -17,35 +17,19 @@ import java.util.ArrayList;
 public class CreationCSV {
 
     /**
-     * @param list à sauvegarder
-     * @param nbColonne nombre de colonne par ligne 
+     * Creer un fichier CSV à partir d'une ArrayList
+     * Chaque élément de l'arrayList est une ligne dans le fichier CSV
+     * @param list à écrire
      */
-    
-    /** TODO RAJOUTER COLONNE : NOMBRE DE SIMULATION*/
-    
-    public static void creerCSV(ArrayList<Double> list, int nbColonne) {
+    public static void creerCSV(ArrayList<String> list) {
         try(PrintWriter fichier = new PrintWriter(new FileWriter("test.csv"))) {
-            StringBuilder sb = new StringBuilder();
-            
-            // ajout d'une première ligne
-            fichier.write("nbRepetition;Probabilite;nbSucces\n");
-            
-            /* On parcoure l'arrauyList*/
-            for (int i = 0; i < list.size() / nbColonne; i++) {
-                /* On regroupe par "bloc" (ligne) les informations */
-                for(int j = 0 ; j < nbColonne - 1; j++) {
-                    sb.append(list.get(i*nbColonne + j)).append(';');
-                }
-                // on ajoute la dernière colonne de la ligne
-                sb.append(list.get(i*nbColonne + nbColonne-1)).append("\n");
-                        
-                        
-                fichier.write(sb.toString());
-                sb.delete(0, sb.length()); // on remet à zero la chaine
+           
+            /* On parcoure l'ArrayList*/
+            for (int i = 0; i < list.size(); i++) {
+                fichier.println(list.get(i));
             }
         } catch (IOException e) {
             System.out.println("Erreur durant l'ouverture ou écriture du fichier");
         }
-    
     }
 }

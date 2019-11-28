@@ -77,7 +77,6 @@ public class testLoiDiscrete {
         for (int i = 0 ; i < PROBA_ASSOCIEES_CORRECT.length ; i++) {
             
             LoiDiscrete ld = new LoiDiscrete(ENSEMBLE_VALEUR[i], PROBA_ASSOCIEES_CORRECT[i]);
-            
             for (int j = 0 ; j < PROBA_ASSOCIEES_CORRECT[i].length ; j++) {
                 if (ld.getProbabiliteEgale(ENSEMBLE_VALEUR[i][j]) == PROBA_ASSOCIEES_CORRECT[i][j]) {
                     nbTestsReussis++;
@@ -86,6 +85,7 @@ public class testLoiDiscrete {
         }
         System.out.println(nbTestsReussis + " tests réussis sur 20");
     }
+    
     
     /**
      * TODO commenter le rôle de cette méthode
@@ -96,6 +96,10 @@ public class testLoiDiscrete {
         testSuivant();
         testGetProbabiliteEgale();
         testSuivant();
+        
+        /* Pour adri */
+//        LoiDiscrete lD = new LoiDiscrete(ENSEMBLE_VALEUR[0], PROBA_ASSOCIEES_CORRECT[1]);
+//        lD.simuler(50);
         
     }
     

@@ -6,6 +6,7 @@ package probabiliteV2;
 
 import java.util.ArrayList;
 
+import outils.CreationCSV;
 import outils.OutilsTableaux;
 
 /**
@@ -21,15 +22,17 @@ public class LoiDiscrete {
     private double[] probabiliteValeur;
     
     public LoiDiscrete(double[] ensembleValeur, double[] probabiliteValeur) {
-        
-        //TODO Verifier qu'il n'y est pas 2 fois la même valeur dans ensembleValeur
-        
+          
         if(ensembleValeur.length != probabiliteValeur.length) {
             throw new IllegalArgumentException("Il n'y a pas le même nombre de valeur que de probabilité");
         }
         
         if(!estValeurCorrecte(probabiliteValeur)) {
             throw new IllegalArgumentException("Au moins une valeur est négative");
+        }
+        
+        if(estAvecDoublons(ensembleValeur)) {
+            throw new IllegalArgumentException("Il y a des doublons dans l'ensemble des valeurs");
         }
         
         if(!estSommeCorrecte(probabiliteValeur)) {
@@ -85,6 +88,16 @@ public class LoiDiscrete {
         return true;
     }
     
+    public static boolean estAvecDoublons(double[] ensembleValeur) {
+        for(int i = 0; i < ensembleValeur.length; i++) {
+            for (int j = i+1; j < ensembleValeur.length; j++) {
+                if(ensembleValeur[i] == ensembleValeur[j]) {
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
     
     /**
      * @param k valeur dont on veut savoir la probabilité
@@ -176,6 +189,9 @@ public class LoiDiscrete {
             }
         }
         
+        /* Lors de chaque simulation, on fait une sauvegarde en prévision de la création
+         * du fichier CSV
+         */
         this.sauvegarder(resultat);
         
         return resultat;
@@ -212,9 +228,12 @@ public class LoiDiscrete {
     
     public void sauvegarder(double[] resultat) {
         String aSave;
+        String ligneIntro = "EnsembleValeurs;ProbaAssiciee;NbSimulé";
+        sauvegardeTemporaire.add(ligneIntro);
         for(int i = 0; i < resultat.length; i++) {
             aSave = ensembleValeur[i] + ";" + probabiliteValeur[i] + ";" + resultat[i];
             sauvegardeTemporaire.add(aSave);
         }
+        CreationCSV.creerCSV(sauvegardeTemporaire);
     }
 }
