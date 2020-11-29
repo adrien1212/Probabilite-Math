@@ -20,7 +20,7 @@ public class LoiUniforme extends LoiDiscrete{
      */
     public LoiUniforme(double[] ensembleValeur) {
         super(ensembleValeur, construireProbilite(ensembleValeur.length));
-        this.p = 1/ensembleValeur.length;
+        this.p = 1.0/ensembleValeur.length;
     }
     
     /**
@@ -29,13 +29,17 @@ public class LoiUniforme extends LoiDiscrete{
      */
     private static double[] construireProbilite(int longueurTableau) {
         double[] aRetourner = new double[longueurTableau];
-        double probabilite = 1 / longueurTableau;
+        double probabilite = 1.0 / longueurTableau;
         
         for(int i = 0; i < longueurTableau; i++) {
             aRetourner[i] = probabilite;
         }
         return aRetourner;
         
+    }
+    
+    public double getP() {
+        return p;
     }
     
 //    @Override

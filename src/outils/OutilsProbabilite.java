@@ -27,9 +27,9 @@ public class OutilsProbabilite {
      * @param n le nombre dont on veut la factorielle
      * @return la factorielle de n
      */
-    public static long factorielle(int n) {
-        if (n <= 2) {
-            return n;
+    public static double factorielle(int n) {
+        if (n < 2) {
+            return 1;
         }
         return n * factorielle(n - 1);
     }

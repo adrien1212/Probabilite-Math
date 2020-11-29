@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lancementFXMLV2.LancementController">
+   <children>
+      <Pane maxHeight="720.0" maxWidth="1080.0" minHeight="720.0" minWidth="1080.0" prefHeight="720.0" prefWidth="1080.0" style="-fx-background-color: white;">
+         <children>
+            <Label layoutX="436.0" layoutY="33.0" text="Probabilités">
+               <font>
+                  <Font name="System Bold" size="37.0" />
+               </font>
+            </Label>
+            <Button fx:id="loiDiscreteBTN" layoutX="153.0" layoutY="219.0" mnemonicParsing="false" onAction="#cliqueLoiDiscrete" prefHeight="54.0" prefWidth="237.0" text="Loi Discrète">
+               <font>
+                  <Font size="25.0" />
+               </font>
+            </Button>
+            <Button fx:id="loiUniformeBTN" layoutX="153.0" layoutY="293.0" mnemonicParsing="false" onAction="#cliqueLoiUniforme" prefHeight="54.0" prefWidth="237.0" text="Loi Uniforme">
+               <font>
+                  <Font size="25.0" />
+               </font>
+            </Button>
+            <Button fx:id="loiBinomialeBTN" layoutX="153.0" layoutY="370.0" mnemonicParsing="false" onAction="#cliqueLoiBinomiale" prefHeight="54.0" prefWidth="237.0" text="Loi Binomiale">
+               <font>
+                  <Font size="25.0" />
+               </font>
+            </Button>
+            <Button fx:id="loiExponentielleBTN" layoutX="153.0" layoutY="445.0" mnemonicParsing="false" onAction="#cliqueLoiExponentielle" prefHeight="54.0" prefWidth="237.0" text="Loi Exponentielle">
+               <font>
+                  <Font size="25.0" />
+               </font>
+            </Button>
+            <Button fx:id="loiNormaleBTN" layoutX="153.0" layoutY="523.0" mnemonicParsing="false" onAction="#cliqueLoiNormale" prefHeight="54.0" prefWidth="237.0" text="Loi Normale">
+               <font>
+                  <Font size="25.0" />
+               </font>
+            </Button>
+            <Button fx:id="loiDiscreteProbaBTN" layoutX="682.0" layoutY="219.0" mnemonicParsing="false" onAction="#cliqueLoiDiscreteProba" prefHeight="54.0" prefWidth="237.0" text="Loi Discrète">
+               <font>
+                  <Font size="25.0" />
+               </font>
+            </Button>
+            <Label layoutX="178.0" layoutY="127.0" text="Simulation">
+               <font>
+                  <Font name="System Bold" size="37.0" />
+               </font>
+            </Label>
+            <Label layoutX="705.0" layoutY="127.0" text="Probabilité">
+               <font>
+                  <Font name="System Bold" size="37.0" />
+               </font>
+            </Label>
+            <Line endX="-45.0" endY="351.0" layoutX="585.0" layoutY="286.0" startX="-45.0" startY="-151.0" />
+            <Button fx:id="loiUniformeProbaBTN" layoutX="682.0" layoutY="293.0" mnemonicParsing="false" onAction="#cliqueLoiUniformeProba" prefHeight="54.0" prefWidth="237.0" text="Loi Uniforme">
+               <font>
+                  <Font size="25.0" />
+               </font>
+            </Button>
+            <Button fx:id="loiBinomialeProbaBTN" layoutX="682.0" layoutY="370.0" mnemonicParsing="false" onAction="#cliqueLoiBinomialeProba" prefHeight="54.0" prefWidth="237.0" text="Loi Binomiale">
+               <font>
+                  <Font size="25.0" />
+               </font>
+            </Button>
+            <Button fx:id="loiExponentielleProbaBTN" layoutX="682.0" layoutY="445.0" mnemonicParsing="false" onAction="#cliqueLoiExponentielleProba" prefHeight="54.0" prefWidth="237.0" text="Loi Exponentielle">
+               <font>
+                  <Font size="25.0" />
+               </font>
+            </Button>
+            <Button fx:id="loiNormaleProbaBTN" layoutX="682.0" layoutY="523.0" mnemonicParsing="false" onAction="#cliqueLoiNormaleProba" prefHeight="54.0" prefWidth="237.0" text="Loi Normale">
+               <font>
+                  <Font size="25.0" />
+               </font>
+            </Button>
+         </children>
+      </Pane>
+   </children>
+</AnchorPane>

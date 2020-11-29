@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lancementFXMLV2.loiBinomiale.LoiBinomialeProbabiliteControler">
+   <children>
+      <Pane maxHeight="720.0" maxWidth="1080.0" minHeight="720.0" minWidth="1080.0" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: white;">
+         <children>
+            <Label layoutX="431.0" layoutY="37.0" text="Loi Binomiale">
+               <font>
+                  <Font name="System Bold" size="34.0" />
+               </font>
+            </Label>
+            <Button fx:id="validerSaisieBTN" layoutX="809.0" layoutY="130.0" mnemonicParsing="false" onAction="#cliqueValiderSaisie" prefHeight="50.0" prefWidth="166.0" text="Valider saisie">
+               <font>
+                  <Font size="21.0" />
+               </font>
+            </Button>
+            <Line endX="749.0" endY="-6.0" layoutX="231.0" layoutY="238.0" startX="-166.0" startY="-6.0" />
+            <Button fx:id="quitterBTN" layoutX="827.0" layoutY="576.0" mnemonicParsing="false" onAction="#cliqueQuitter" prefHeight="50.0" prefWidth="154.0" text="Quitter">
+               <font>
+                  <Font size="21.0" />
+               </font>
+            </Button>
+            <Label fx:id="erreurMessageLabel" layoutX="65.0" layoutY="618.0" prefHeight="30.0" prefWidth="525.0" textFill="RED">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Label>
+            <Label layoutX="68.0" layoutY="336.0" text="Probabilité cumulée à">
+               <font>
+                  <Font size="23.0" />
+               </font>
+            </Label>
+            <TextField fx:id="probabiliteCumuleeTF" disable="true" layoutX="312.0" layoutY="340.0" prefHeight="25.0" prefWidth="126.0" />
+            <Label layoutX="67.0" layoutY="279.0" text="Probabilité égale à">
+               <font>
+                  <Font size="23.0" />
+               </font>
+            </Label>
+            <TextField fx:id="probabiliteEgaleTF" disable="true" layoutX="312.0" layoutY="284.0" prefHeight="25.0" prefWidth="126.0" />
+            <CheckBox fx:id="inferieurCB" disable="true" layoutX="105.0" layoutY="378.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="147.0" text="Inférieur">
+               <font>
+                  <Font size="22.0" />
+               </font>
+            </CheckBox>
+            <CheckBox fx:id="superieurCB" disable="true" layoutX="105.0" layoutY="421.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="147.0" text="Supérieur">
+               <font>
+                  <Font size="22.0" />
+               </font>
+            </CheckBox>
+            <CheckBox fx:id="ouEgaleCB" disable="true" layoutX="105.0" layoutY="465.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="147.0" text="Ou égale">
+               <font>
+                  <Font size="22.0" />
+               </font>
+            </CheckBox>
+            <ScrollPane layoutX="471.0" layoutY="279.0" prefHeight="273.0" prefWidth="510.0">
+               <content>
+                  <VBox fx:id="resultatVBox" disable="true" prefHeight="271.0" prefWidth="497.0" />
+               </content>
+            </ScrollPane>
+            <Button fx:id="recupererBTN" disable="true" layoutX="188.0" layoutY="519.0" mnemonicParsing="false" onAction="#cliqueRecuperer" text="Récupérer">
+               <font>
+                  <Font size="22.0" />
+               </font>
+            </Button>
+            <Label layoutX="65.0" layoutY="117.0" prefHeight="34.0" prefWidth="217.0" text="Nombre de succès">
+               <font>
+                  <Font size="23.0" />
+               </font>
+            </Label>
+            <Label layoutX="65.0" layoutY="159.0" text="Probabilité du succès">
+               <font>
+                  <Font size="23.0" />
+               </font>
+            </Label>
+            <TextField fx:id="nbSuccesTF" layoutX="309.0" layoutY="122.0" prefHeight="25.0" prefWidth="443.0" />
+            <TextField fx:id="probabiliteSuccesTF" layoutX="309.0" layoutY="164.0" prefHeight="25.0" prefWidth="443.0" />
+         </children>
+      </Pane>
+      <Label fx:id="erreurMessageLabel1" layoutX="75.0" layoutY="628.0" prefHeight="30.0" prefWidth="525.0" textFill="RED">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
+      <Label fx:id="erreurMessageLabel2" layoutX="75.0" layoutY="628.0" prefHeight="30.0" prefWidth="525.0" textFill="RED">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>

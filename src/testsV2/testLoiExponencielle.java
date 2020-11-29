@@ -2,10 +2,10 @@
  * testLoiExponencielle.java                                                  30 oct. 2019
  * IUT info1 2018-2019 groupe 1, aucun droits : ni copyright ni copyleft 
  */
-package tests;
+package testsV2;
 
 import outils.OutilsTableaux;
-import probabilite.LoiExponentielle;
+import probabiliteV2.LoiExponentielle;
 
 /**
  * Test de la loi exponentielle
@@ -16,7 +16,7 @@ public class testLoiExponencielle {
 
     
     /** Jeux de valeurs pour le parametre lambda */
-    public static double lambda[] = {0,1,0.2,0.3,0.5};
+    public static double lambda[] = {1,0.2,0.3,0.5};
     
     
     /**
@@ -52,14 +52,18 @@ public class testLoiExponencielle {
             } catch(IllegalArgumentException err) {
                 System.out.println(err.getMessage());
             }
-            
+        }
+       
+        for (int i = 0 ; i < lambda.length ; i++) {
             try {
                 LoiExponentielle lE = new LoiExponentielle(lambda[i]);
                 System.out.println(lE.getProbabiteIntervalle(-5, 5));
             } catch(IllegalArgumentException err) {
                 System.out.println(err.getMessage());
             }
-            
+        }
+        
+        for (int i = 0 ; i < lambda.length ; i++) {
             try {
                 LoiExponentielle lE = new LoiExponentielle(lambda[i]);
                 System.out.println(lE.getProbabiteIntervalle(5, 3));
@@ -73,25 +77,15 @@ public class testLoiExponencielle {
      * Test unitaire de la methode simuler
      */
     public static void testSimuler() {
-        System.out.println("Test de la simulation d'une loi Exponentielle du type P(X>t)");
-        System.out.println("----------------------------------------------------------\n");
         
         try {
-            LoiExponentielle lE = new LoiExponentielle(lambda[3]);
-            OutilsTableaux.tabAfficher(lE.simuler(12,10,false));
+            LoiExponentielle lE = new LoiExponentielle(lambda[2]);
+            OutilsTableaux.tabAfficher(lE.simuler(50));
         } catch(IllegalArgumentException err) {
             System.out.println(err.getMessage());
         }
         
-        System.out.println("\nTest de la simulation d'une loi Exponentielle du type P(X<t)");
-        System.out.println("----------------------------------------------------------\n");
-        
-        try {
-            LoiExponentielle lE = new LoiExponentielle(lambda[3]);
-            OutilsTableaux.tabAfficher(lE.simuler(12,10,true));
-        } catch(IllegalArgumentException err) {
-            System.out.println(err.getMessage());
-        }
+
     }
     
     
@@ -100,8 +94,8 @@ public class testLoiExponencielle {
      * @param args non utilisé
      */
     public static void main(String[] args) {
-        //testGetProbabiliteCumulee();
-        //testGetProbabiliteIntervalle();
+        //testGetProbabiliteCumulee();  test ok
+        //testGetProbabiliteIntervalle(); test ok
         testSimuler();
     }
 }

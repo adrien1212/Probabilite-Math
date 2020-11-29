@@ -1,6 +1,7 @@
 package testsV2;
 
 import probabiliteV2.LoiBinomiale;
+import probabiliteV2.LoiDiscrete;
 import outils.OutilsTableaux;
 
 /**
@@ -88,9 +89,16 @@ public class testLoiBinomiale {
      */
     public static void main(String[] args) {
         //testBinomiale();
-        testSimuler();
+        //testSimuler();
         //testGetProbabiliteEgale();
         //testGetProbabiliteContinue(); 
+        
+        /* Pour adrien - sauvegarde */
+        LoiBinomiale lB = new LoiBinomiale(10, 0.2);
+        lB.simuler(50);
+        lB.simuler(100);
+        lB.simuler(1000);
+        lB.sauvegarder("testSaveBinomiale.csv");
     }
 
 }

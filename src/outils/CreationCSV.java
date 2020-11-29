@@ -20,9 +20,10 @@ public class CreationCSV {
      * Creer un fichier CSV à partir d'une ArrayList
      * Chaque élément de l'arrayList est une ligne dans le fichier CSV
      * @param list à écrire
+     * @param fichierDestination 
      */
-    public static void creerCSV(ArrayList<String> list) {
-        try(PrintWriter fichier = new PrintWriter(new FileWriter("test.csv"))) {
+    public static void creerCSV(ArrayList<String> list, String fichierDestination) {
+        try(PrintWriter fichier = new PrintWriter(new FileWriter(fichierDestination))) {
            
             /* On parcoure l'ArrayList*/
             for (int i = 0; i < list.size(); i++) {

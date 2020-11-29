@@ -2,15 +2,21 @@
  * LoiExponentielle.java                                                  24 oct. 2019
  * IUT info1 2018-2019 groupe 1, aucun droits : ni copyright ni copyleft 
  */
-package probabilite;
+package probabiliteV2;
+
+import java.util.ArrayList;
+
+import outils.CreationCSV;
 
 /**
  * TODO commenter les responsabilités de cette classe
- * @author adrien.caubel
+ * @author groupe
  *
  */
-public class LoiExponentielle extends LoiContinue{
+public class LoiExponentielle{
 
+    private ArrayList<String> sauvegardeTemporaire = new ArrayList<String>();
+    
     /** paramètre de la loi Exponentielle */
     private double lambda; 
     
@@ -18,10 +24,7 @@ public class LoiExponentielle extends LoiContinue{
      * @param lambda paramètre de la loi exponentielle
      */
     public LoiExponentielle(double lambda) {
-        super(0, Double.MAX_VALUE);
-        
-        // TODO vérifier lambda > à 0
-        if (lambda < 0 || lambda > 1) {
+        if (lambda <= 0 || lambda > 1) {
             throw new IllegalArgumentException("lambda doit etre compris entre 0 et 1.");
         }
         this.lambda = lambda;
@@ -64,35 +67,45 @@ public class LoiExponentielle extends LoiContinue{
     
     
     /**
-     * TODO PAS OK
      * Simulation d'un loi exponentielle
      * @param nbSimulation de cette loi
-     * @param t le parametre de la simulation P(X<=t) ou P(X>=t)
-     * @param inferieur true si on veut la probabilité qu'on soit inférieur à t
-     *                  false si on veut la probabilité qu'on soit supérieur à t
      * @return les résultats de la simulation
      */
-    public double[] simuler(int nbSimulation, double t, boolean inferieur) {
+    public double[] simuler(int nbSimulation) {
         
         if (nbSimulation < 0) {
             throw new IllegalArgumentException("Le nombre de simulations doit etre positif");
         }
         
+        
         // tableau des résulats
         double resultatSimulation[] = new double[nbSimulation];
         
-        if (inferieur) {
-            for (int i = 0; i < nbSimulation; i++) {
-                double nbAlea = Math.random();
-                resultatSimulation[i] = (-1.0 / this.lambda) * Math.log(1-nbAlea);
-            }
-        } else {
-            for (int i = 0; i < nbSimulation; i++) {
-                double nbAlea = Math.random();
-                resultatSimulation[i] = 1 - ( (-1.0 / this.lambda) * (Math.log(1-nbAlea)) );
-            }
-        }
+        for (int i = 0; i < nbSimulation; i++) {
+            double nbAlea = Math.random();
+            resultatSimulation[i] = (-1.0 / this.lambda) * Math.log(1-nbAlea);
+        }  
+        
+        this.sauvegarderTempo(resultatSimulation);
         
         return resultatSimulation;
+    }
+    
+    /**
+     * @param resultat de la simulation
+     */
+    public void sauvegarderTempo(double[] resultat) {
+        String aSave = null;
+        String ligneIntro = "Lambda;Resultat";
+        sauvegardeTemporaire.add(ligneIntro);
+        for(int i = 0; i < resultat.length; i++) {
+            aSave = lambda + ";" + resultat[i];
+            aSave = aSave.replaceAll("\\.", ",");
+            sauvegardeTemporaire.add(aSave);
+        }
+    }
+    
+    public void sauvegarder(String fichierDestination) {
+        CreationCSV.creerCSV(sauvegardeTemporaire, fichierDestination);
     }
 }

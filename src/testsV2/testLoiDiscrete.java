@@ -92,14 +92,17 @@ public class testLoiDiscrete {
      * @param args
      */
     public static void main(String[] args) {
-        testConstructeur();
-        testSuivant();
-        testGetProbabiliteEgale();
-        testSuivant();
+//        testConstructeur();
+//        testSuivant();
+//        testGetProbabiliteEgale();
+//        testSuivant();
         
-        /* Pour adri */
-//        LoiDiscrete lD = new LoiDiscrete(ENSEMBLE_VALEUR[0], PROBA_ASSOCIEES_CORRECT[1]);
-//        lD.simuler(50);
+        /* Pour adrien - sauvegarde */
+        LoiDiscrete lD = new LoiDiscrete(ENSEMBLE_VALEUR[0], PROBA_ASSOCIEES_CORRECT[1]);
+        lD.simuler(50);
+        lD.simuler(100);
+        lD.simuler(1000);
+        lD.sauvegarder("test.csv");
         
     }
     
